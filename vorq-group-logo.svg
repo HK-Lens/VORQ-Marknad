@@ -1,0 +1,15 @@
+<svg width="980" height="220" viewBox="0 0 980 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">VORQ Group</title>
+  <desc id="desc">VORQ Group logo with the slogan Vision Operations Reach Quality</desc>
+  <rect width="980" height="220" rx="34" fill="white"/>
+  <g transform="translate(36 42)">
+    <path d="M22 70 C70 18 136 2 214 22 C178 28 139 36 102 58 C150 46 205 44 270 63 C196 68 132 88 78 124 L22 124 C47 102 70 86 102 70 C75 69 47 70 22 70Z" fill="#0A2342"/>
+    <path d="M36 133 C105 84 179 63 276 66 C193 86 126 114 76 153 H18 C24 146 30 139 36 133Z" fill="#F58220"/>
+  </g>
+  <text x="352" y="118" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="900" letter-spacing="-5" fill="#0A2342">VOR</text>
+  <text x="572" y="118" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="900" letter-spacing="-5" fill="#F58220">Q</text>
+  <text x="690" y="118" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="850" letter-spacing="-2.5" fill="#0A2342">Group</text>
+  <line x1="352" y1="154" x2="456" y2="154" stroke="#F58220" stroke-width="5" stroke-linecap="round"/>
+  <text x="476" y="164" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="750" letter-spacing=".4" fill="#0A2342">Vision • Operations • Reach • Quality</text>
+  <line x1="824" y1="154" x2="930" y2="154" stroke="#F58220" stroke-width="5" stroke-linecap="round"/>
+</svg>

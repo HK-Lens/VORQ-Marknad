@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Logga in | VORQ Marknad</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="header"><div class="container header-in"><a class="brand" href="index.html"><img src="vorq-group-logo.svg" alt="VORQ Group"><div><div class="brand-title">VORQ Marknad</div><div class="brand-sub">Inloggning och konto</div></div></a><nav class="nav"><a href="index.html">Hem</a><a href="post-ad.html">Sälj</a></nav></div></header>
+<main class="container"><section class="auth-box panel"><div class="eyebrow">Konto</div><h1 class="section-title">Logga in eller skapa konto</h1><p class="admin-note">Använd e-post/lösenord eller Google. Du kan även återställa lösenordet.</p><div id="status" class="notice hidden"></div><div class="tabs"><button id="loginTab" class="tab active">Logga in</button><button id="signupTab" class="tab">Skapa konto</button></div>
+<form id="loginForm"><div class="field"><label>E-post</label><input id="loginEmail" type="email" required placeholder="namn@email.com"></div><div class="field"><label>Lösenord</label><input id="loginPassword" type="password" required placeholder="••••••••"></div><button class="btn btn-primary" type="submit">Logga in</button><button class="btn btn-white" id="resetBtn" type="button">Återställ lösenord</button></form>
+<form id="signupForm" class="hidden"><div class="form-grid"><div class="field"><label>Namn</label><input id="signupName" required placeholder="Ditt namn"></div><div class="field"><label>Stad</label><input id="signupCity" placeholder="Aneby"></div></div><div class="field"><label>E-post</label><input id="signupEmail" type="email" required></div><div class="field"><label>Lösenord</label><input id="signupPassword" type="password" required minlength="6"></div><button class="btn btn-primary" type="submit">Skapa konto</button></form>
+<hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><button id="googleBtn" class="btn btn-dark">Fortsätt med Google</button></section></main>
+<script type="module" src="login.js"></script>
+</body></html>

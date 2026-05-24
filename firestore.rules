@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(ownerId) { return signedIn() && request.auth.uid == ownerId; }
+
+    match /users/{userId} {
+      allow read, create, update: if isOwner(userId);
+      allow delete: if false;
+    }
+
+    match /ads/{adId} {
+      allow read: if resource.data.status == "active" || isOwner(resource.data.ownerId);
+      allow create: if signedIn()
+        && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.title is string
+        && request.resource.data.title.size() >= 3
+        && request.resource.data.title.size() <= 80
+        && request.resource.data.description is string
+        && request.resource.data.description.size() >= 10
+        && request.resource.data.description.size() <= 2500
+        && request.resource.data.price is number
+        && request.resource.data.price >= 0
+        && request.resource.data.imageUrls is list
+        && request.resource.data.imageUrls.size() <= 6
+        && request.resource.data.status in ["active", "archived"];
+      allow update: if isOwner(resource.data.ownerId)
+        && request.resource.data.ownerId == resource.data.ownerId
+        && request.resource.data.price is number
+        && request.resource.data.price >= 0
+        && request.resource.data.imageUrls is list
+        && request.resource.data.imageUrls.size() <= 6
+        && request.resource.data.status in ["active", "archived", "deleted"];
+      allow delete: if isOwner(resource.data.ownerId);
+    }
+  }
+}
