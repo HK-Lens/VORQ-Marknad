@@ -7,9 +7,36 @@
   <meta name="description" content="VORQ Marknad är en digital marknadsplats för begagnade varor, ägd av VORQ Group.">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="styles.css">
+<style>
+  .vorq-alert-banner {
+    background: linear-gradient(90deg, #b00020, #ff1744, #b00020);
+    background-size: 200% 100%;
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+    padding: 12px 16px;
+    animation: vorqAlertBg 3s linear infinite;
+    letter-spacing: .2px;
+  }
+  .vorq-alert-banner span {
+    display: inline-block;
+    animation: vorqAlertText 1.6s ease-in-out infinite;
+  }
+  @keyframes vorqAlertBg {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  @keyframes vorqAlertText {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.03); opacity: .86; }
+  }
+</style>
 </head>
 <body>
 <header class="header"><div class="container header-in"><a class="brand" href="index.html"><img src="vorq-group-logo.svg" alt="VORQ Group"><div><div class="brand-title">VORQ Marknad</div><div class="brand-sub">Ägs av VORQ Group</div></div></a><nav class="nav"><a href="index.html">Hem</a><a href="#ads">Annonser</a><a href="post-ad.html">Sälj</a><span id="authArea"><a href="login.html">Logga in</a></span></nav></div></header>
+<div class="vorq-alert-banner" role="alert" aria-live="polite">
+  <span id="vorqAlertText">Viktig information: Webbplatsen är under utveckling. Kontrollera alltid annonsuppgifter noggrant före kontakt eller köp.</span>
+</div>
 <main>
 <section class="hero"><div class="container hero-grid"><div><div class="badge">Begagnat • lokalt • enkelt</div><h1>Köp och sälj <span>begagnade</span> saker tryggare.</h1><p>VORQ Marknad är en annonsplattform för begagnade produkter. Publicera annonser med bilder, pris, beskrivning och plats. Konton, inloggning och bilder hanteras via Firebase.</p><div class="hero-actions"><a class="btn btn-primary" href="post-ad.html">Publicera annons</a><a class="btn btn-white" href="#ads">Bläddra annonser</a></div></div><div class="search-card"><h2 class="section-title" style="font-size:30px">Sök annonser</h2><p class="admin-note">Filtrera efter kategori, stad och pris. Visar publicerade annonser.</p><div class="filters"><div class="field"><label>Sökord</label><input id="searchInput" placeholder="t.ex. iPhone, soffa, cykel"></div><div class="field"><label>Kategori</label><select id="categoryFilter"></select></div><div class="field"><label>Stad</label><input id="cityFilter" placeholder="Aneby, Jönköping..."></div><button id="clearFilters" class="btn btn-dark">Rensa</button></div></div></div></section>
 <section id="ads" class="section"><div class="container"><div class="section-top"><div><div class="eyebrow">Senaste annonserna</div><h2 class="section-title">Aktiva annonser</h2></div><a class="btn btn-soft" href="post-ad.html">+ Ny annons</a></div><div id="adsGrid" class="grid"><div class="empty">Laddar annonser...</div></div></div></section>
@@ -17,6 +44,21 @@
 </main>
 <div class="legal-strip"><div class="container">VORQ Marknad ägs och drivs av VORQ Group • info@vorq.group • Vision • Operations • Reach • Quality</div></div>
 <footer class="footer"><div class="container footer-in"><p>© 2026 VORQ Group. Alla rättigheter förbehållna.</p><p><a href="mailto:info@vorq.group">info@vorq.group</a></p></div></footer>
+<script>
+  const vorqAlertMessages = [
+    "Viktig information: Webbplatsen är under utveckling. Kontrollera alltid annonsuppgifter noggrant före kontakt eller köp.",
+    "Important notice: This website is under development. Always check listing details carefully before contact or purchase.",
+    "Wichtiger Hinweis: Diese Website befindet sich in Entwicklung. Prüfen Sie Anzeigenangaben immer sorgfältig vor Kontakt oder Kauf."
+  ];
+  let vorqAlertIndex = 0;
+  const vorqAlertText = document.getElementById("vorqAlertText");
+  if (vorqAlertText) {
+    setInterval(() => {
+      vorqAlertIndex = (vorqAlertIndex + 1) % vorqAlertMessages.length;
+      vorqAlertText.textContent = vorqAlertMessages[vorqAlertIndex];
+    }, 4500);
+  }
+</script>
 <script type="module" src="common.js"></script>
 <script type="module" src="app.js"></script>
 </body>
